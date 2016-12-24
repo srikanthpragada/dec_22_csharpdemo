@@ -33,8 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>csharpdemo.DefArgDemo</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,8 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefArgDemo.cs" />
     <Compile Include="Factors.cs" />
+    <Compile Include="FunctionsDemo.cs" />
     <Compile Include="Marks.cs" />
+    <Compile Include="MonthDays.cs" />
     <Compile Include="Numbers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
