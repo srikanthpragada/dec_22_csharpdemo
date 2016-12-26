@@ -8,12 +8,15 @@ namespace csharpdemo
 {
     class Factors
     {
-        static void Main()
+        static void Main(string [] args)
         {
-            Console.Write("Enter a number :");
-            string input = Console.ReadLine();  // read a line from keyboard
+            if( args.Length == 0)
+            {
+                Console.WriteLine("Missing number on command line! Quitting...");
+                return; 
+            }
 
-            int num = Int32.Parse(input);  // convert string to int
+            int num = Int32.Parse(args[0]);  // convert string to int
 
             for (int i = 2; i <= num / 2; i++)
             {
