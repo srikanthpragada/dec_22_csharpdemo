@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>csharpdemo.TestStudent</StartupObject>
+    <StartupObject>csharpdemo.TestDate</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -51,6 +51,7 @@
     <Compile Include="FunctionsDemo.cs" />
     <Compile Include="Marks.cs" />
     <Compile Include="MonthDays.cs" />
+    <Compile Include="MyDate.cs" />
     <Compile Include="Numbers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

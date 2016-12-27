@@ -11,33 +11,53 @@ namespace csharpdemo
         // Fields 
         private int admno;
         private string name;
-        private int feepaid;
+        public  int feepaid;
 
         // Constructor
-        public Student(int no, string sname)
+        public Student(int admno, string name)
         {
-            admno = no;
-            name = sname; 
+            this.admno = admno;
+            this.name = name; 
         }
 
         // Constructor
-        public Student(int no, string sname, int amount)
+        public Student(int admno, string name, int feepaid)
         {
-            admno = no;
-            name = sname;
-            feepaid = amount; 
+            this.admno = admno;
+            this.name = name;
+            this.feepaid = feepaid; 
         }
 
         // Methods 
         public void Print()
         {
-            Console.WriteLine(admno);
-            Console.WriteLine(name);
-            Console.WriteLine(feepaid);
+            Console.WriteLine(this.admno);
+            Console.WriteLine(this.name);
+            Console.WriteLine(this.feepaid);
         }
         public void Payment(int amount)
         {
             feepaid += amount;
+        }
+
+        public int FeePaid
+        {
+            get
+            {
+                return feepaid; 
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value; 
+            }
         }
     }
 }
