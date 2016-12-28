@@ -10,15 +10,20 @@ namespace csharpdemo
     {
         public static void Main()
         {
-            Student s = new Student(1,"Bill");
-            s.Payment(1000);
-            s.Payment(4500);
-            s.Print();
-            Console.WriteLine("Fee paid : {0}", s.FeePaid);
+            Student s1 = new Student(1,"Bill");
+            s1.Print();
+
+            Student.CourseFee = 6000;  // set method
+
+            Console.WriteLine(Student.CourseFee);  // get method 
+
+            
 
 
 
- 
+
+
+
         }
     }
 }

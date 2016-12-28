@@ -11,7 +11,21 @@ namespace csharpdemo
         // Fields 
         private int admno;
         private string name;
-        public  int feepaid;
+        private int feepaid;
+        // Class variable
+        private static int courseFee = 5500;
+
+        public static int CourseFee
+        {
+            get
+            {
+                return courseFee;
+            }
+            set
+            {
+                courseFee = value; 
+            }
+        }
 
         // Constructor
         public Student(int admno, string name)
@@ -37,7 +51,10 @@ namespace csharpdemo
         }
         public void Payment(int amount)
         {
-            feepaid += amount;
+            if (feepaid + amount > courseFee)
+                Console.WriteLine("Sorry! Excess fee being paid");
+            else
+                feepaid += amount;
         }
 
         public int FeePaid
