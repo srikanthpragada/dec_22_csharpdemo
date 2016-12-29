@@ -12,10 +12,10 @@ namespace csharpdemo
         {
             // upcasting 
             Person p = new Employee("Steve", "steve@apple.com", "Apple", "Programmer");
-            p.Print();  // runtime polymorphism - late binding 
+            Console.WriteLine(p.GetOccupation());
 
             p = new OSEmployee("Elon", "elon@gmail.com", "Tesla", "Designer", "US");
-            p.Print();  // runtime polymorphism - late binding 
+            Console.WriteLine(p.GetOccupation());
 
         }
     }

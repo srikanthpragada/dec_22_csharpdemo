@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharpdemo
 {
-    class Person
+    abstract class Person
     {
         protected String name, email;
         public Person(String name, String email)
@@ -19,6 +19,8 @@ namespace csharpdemo
             Console.WriteLine(name);
             Console.WriteLine(email);
         }
+
+        public abstract string GetOccupation();
     }
 
     class Employee : Person
@@ -37,6 +39,11 @@ namespace csharpdemo
             Console.WriteLine(job);
             Console.WriteLine(company);
         }
+
+        public override string GetOccupation()
+        {
+            return "Works for " + company + " as " + job;
+        }
     }
 
 
@@ -53,6 +60,11 @@ namespace csharpdemo
         {
             base.Print();
             Console.WriteLine(country);
+        }
+
+        public override string GetOccupation()
+        {
+            return "Works for " + company + " as " + job + " in " + country;
         }
     }
 }

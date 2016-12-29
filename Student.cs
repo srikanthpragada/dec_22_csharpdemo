@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace csharpdemo
 {
+    class ExcessFeeException : Exception 
+    {
+        public ExcessFeeException() : base("Excess Fee Is Being Paid!")
+        {
+
+        }
+
+    }
+
     class Student
     {
         // Fields 
@@ -52,9 +61,9 @@ namespace csharpdemo
         public void Payment(int amount)
         {
             if (feepaid + amount > courseFee)
-                Console.WriteLine("Sorry! Excess fee being paid");
-            else
-                feepaid += amount;
+                throw new ExcessFeeException();
+
+            feepaid += amount;
         }
 
         public int FeePaid
