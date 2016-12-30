@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>csharpdemo.TestDate</StartupObject>
+    <StartupObject>csharpdemo.DisplayFile</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Book.cs" />
     <Compile Include="DefArgDemo.cs" />
+    <Compile Include="DisplayFile.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Factors.cs" />
     <Compile Include="FunctionsDemo.cs" />
