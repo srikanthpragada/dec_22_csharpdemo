@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>csharpdemo.DisplayFile</StartupObject>
+    <StartupObject>csharpdemo.SearchString</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,10 +53,13 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Factors.cs" />
     <Compile Include="FunctionsDemo.cs" />
+    <Compile Include="SearchString.cs" />
+    <Compile Include="ListEmails.cs" />
     <Compile Include="Marks.cs" />
     <Compile Include="MonthDays.cs" />
     <Compile Include="MyDate.cs" />
     <Compile Include="Numbers.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="SumOfNumbers.cs" />
     <Compile Include="TestPerson.cs" />
     <Compile Include="Program.cs" />
