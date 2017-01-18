@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>csharpdemo.SearchString</StartupObject>
+    <StartupObject>csharpdemo.UseDelegate</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="DefArgDemo.cs" />
+    <Compile Include="DelegateDemo.cs" />
     <Compile Include="DisplayFile.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Factors.cs" />
@@ -66,6 +67,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="TestStudent.cs" />
+    <Compile Include="Time.cs" />
+    <Compile Include="UseDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
