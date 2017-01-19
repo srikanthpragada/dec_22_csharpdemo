@@ -14,11 +14,20 @@ namespace csharpdemo
 
             int [] sa = Array.FindAll(a, new Predicate<int>(IsEven));
 
+            sa = Array.FindAll(a, IsEven);
+
+            sa = Array.FindAll(a,
+                   delegate(int n) 
+                   {
+                      return n % 2 == 1;
+                   } 
+                 );
+
+            sa = Array.FindAll(a, n => n % 5 == 0 );
+
             foreach (int n in sa)
                 Console.WriteLine(n);
-
         }
-
         public static bool IsEven(int n)
         {
             return n % 2 == 0;
