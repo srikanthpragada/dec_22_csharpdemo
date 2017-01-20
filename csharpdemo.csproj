@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>csharpdemo.AdvFeatures</StartupObject>
+    <StartupObject>csharpdemo.SortPhones</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvFeatures.cs" />
+    <Compile Include="AttributesDemo.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="DefArgDemo.cs" />
     <Compile Include="DelegateDemo.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="MyDate.cs" />
     <Compile Include="Numbers.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="SortNames.cs" />
+    <Compile Include="SortPhones.cs" />
     <Compile Include="SumOfNumbers.cs" />
     <Compile Include="TestPerson.cs" />
     <Compile Include="Program.cs" />

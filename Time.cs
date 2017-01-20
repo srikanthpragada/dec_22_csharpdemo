@@ -50,6 +50,13 @@ namespace csharpdemo
         }
     }
 
+    static class ExtMethods
+    {
+        public static void Print(this Time t)
+        {
+            Console.WriteLine("{0:00}:{1:00}:{2:00}", t.Hours, t.Mins, t.Secs);
+        }
+    }
     class TestTime
     {
         public static void Main()
@@ -58,12 +65,17 @@ namespace csharpdemo
 
             Time t1 = new Time { Hours = 11, Mins = 20, Secs = 30 };
             Time t2 = new Time { Hours = 10, Mins = 20, Secs = 30 };
-            
-            Console.WriteLine(t1 == t2);
+
+            #region Operator Overloading Demo             
+            Console.WriteLine(t1 == t2);  // Time.operator==(t1,t2)
             Console.WriteLine(t1 > t2);
             Console.WriteLine(t1 > t2);
+            #endregion
 
             int n = (int) t1;  // Time to int 
+
+            t1.Print();  //  ExtMethods.Print(t1)
+
         }
     }
 }
