@@ -34,11 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>csharpdemo.SortPhones</StartupObject>
+    <StartupObject>linq.ListCourses</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,12 @@
     <Compile Include="FunctionsDemo.cs" />
     <Compile Include="GenericMethods.cs" />
     <Compile Include="GenericsDemo.cs" />
+    <Compile Include="linq\Book.cs" />
+    <Compile Include="linq\Course.cs" />
+    <Compile Include="linq\ListCourses.cs" />
+    <Compile Include="linq\MyDataContext.cs" />
+    <Compile Include="linq\QueryExpressionsDemo.cs" />
+    <Compile Include="linq\QueryOperatorsDemo.cs" />
     <Compile Include="SearchString.cs" />
     <Compile Include="ListEmails.cs" />
     <Compile Include="Marks.cs" />
