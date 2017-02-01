@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>linq.ListCourses</StartupObject>
+    <StartupObject>linq.DeleteCourse</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -59,8 +59,11 @@
     <Compile Include="FunctionsDemo.cs" />
     <Compile Include="GenericMethods.cs" />
     <Compile Include="GenericsDemo.cs" />
+    <Compile Include="linq\DeleteCourse.cs" />
+    <Compile Include="linq\UpdateCourse.cs" />
     <Compile Include="linq\Book.cs" />
     <Compile Include="linq\Course.cs" />
+    <Compile Include="linq\AddCourse.cs" />
     <Compile Include="linq\ListCourses.cs" />
     <Compile Include="linq\MyDataContext.cs" />
     <Compile Include="linq\QueryExpressionsDemo.cs" />

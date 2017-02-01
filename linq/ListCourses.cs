@@ -11,7 +11,6 @@ namespace linq
         public static void Main()
         {
             MyDataContext dc = new MyDataContext();
-
             var courses = from c in dc.Courses
                           where c.Fee > 3000
                           select new { Title = c.Title, Fee = c.Fee ,  NetFee = c.Fee * 0.90 };
