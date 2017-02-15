@@ -22,7 +22,8 @@ namespace csharpdemo.ef
 
                 foreach(var p in c.Products)
                 {
-                    Console.WriteLine("       {0} - {1}", p.ProdName, p.Price);
+                    Console.WriteLine("       {0} - {1} - {2} ", p.ProdName,
+                          p.Price, p.Qoh.HasValue ? p.Qoh.ToString() : "NULL");
                 }
             }
 

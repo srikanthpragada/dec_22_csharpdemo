@@ -27,5 +27,6 @@ namespace csharpdemo.ef
     
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Sale> Sales { get; set; }
     }
 }

@@ -14,6 +14,12 @@ namespace csharpdemo.ef
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.Sales = new HashSet<Sale>();
+        }
+    
         public int ProdId { get; set; }
         public string ProdName { get; set; }
         public Nullable<decimal> Price { get; set; }
@@ -22,5 +28,7 @@ namespace csharpdemo.ef
         public string CatCode { get; set; }
     
         public virtual Category Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sale> Sales { get; set; }
     }
 }

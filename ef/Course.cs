@@ -1,10 +1,13 @@
-﻿using System.Data.Linq.Mapping;
+﻿
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace csharpdemo.ef 
 {
-    [Table (Name ="courses")]
     class Course
     {
+        [Key]
         public string Code { get; set; }
         public string Title { get; set; }
         public int Duration { get; set; }

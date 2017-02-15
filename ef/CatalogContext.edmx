@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="msdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="msdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CatCode" />
@@ -23,6 +23,16 @@
           <Property Name="Remarks" Type="varchar" MaxLength="100" />
           <Property Name="CatCode" Type="varchar" MaxLength="10" />
         </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="Invno" />
+          </Key>
+          <Property Name="Invno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdId" Type="int" />
+          <Property Name="TransDate" Type="datetime" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="Amount" Type="money" />
+        </EntityType>
         <Association Name="FK__Products__CatCod__51A50FA1">
           <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -35,16 +45,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Fk_Sales_To_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProdId" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="ProdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="msdbModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Products__CatCod__51A50FA1" Association="Self.FK__Products__CatCod__51A50FA1">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
+          <AssociationSet Name="Fk_Sales_To_Products" Association="Self.Fk_Sales_To_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="msdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -67,6 +93,7 @@
           <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CatCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK__Products__CatCod__51A50FA1" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="Sales" Relationship="msdbModel.Fk_Sales_To_Products" FromRole="Product" ToRole="Sale" />
         </EntityType>
         <Association Name="FK__Products__CatCod__51A50FA1">
           <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
@@ -87,7 +114,35 @@
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
+          <EntitySet Name="Sales" EntityType="msdbModel.Sale" />
+          <AssociationSet Name="Fk_Sales_To_Products" Association="msdbModel.Fk_Sales_To_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="Invno" />
+          </Key>
+          <Property Name="Invno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdId" Type="Int32" />
+          <Property Name="TransDate" Type="DateTime" Precision="3" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Product" Relationship="msdbModel.Fk_Sales_To_Products" FromRole="Sale" ToRole="Product" />
+        </EntityType>
+        <Association Name="Fk_Sales_To_Products">
+          <End Type="msdbModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="msdbModel.Sale" Role="Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProdId" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="ProdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -111,6 +166,17 @@
                 <ScalarProperty Name="Qoh" ColumnName="Qoh" />
                 <ScalarProperty Name="Remarks" ColumnName="Remarks" />
                 <ScalarProperty Name="CatCode" ColumnName="CatCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="msdbModel.Sale">
+              <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+                <ScalarProperty Name="Invno" ColumnName="Invno" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

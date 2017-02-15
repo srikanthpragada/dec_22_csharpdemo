@@ -10,14 +10,18 @@ namespace csharpdemo.ef
     {
         public static void Main()
         {
-            MyDBContext dc = new MyDBContext();
+            MyDBContext ctx = new MyDBContext();
             // Linq to Entities 
-            var courses = from c in dc.Courses
-                          select c; 
+            var courses = from c in ctx.Courses
+                          where c.Fee > 3000
+                          orderby c.Fee descending
+                          select c;
                           
 
+            // var courses = ctx.Courses;
 
-            foreach(var c in courses)
+
+            foreach (var c in courses)
             {
                 Console.WriteLine("{0} - {1} - {2}", c.Title, c.Duration, c.Fee);
             }

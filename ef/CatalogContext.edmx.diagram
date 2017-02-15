@@ -6,8 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="3f5394a627ae44eaba36a55683dc247d" Name="Diagram1">
         <EntityTypeShape EntityType="msdbModel.Category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="msdbModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="msdbModel.Product" Width="1.5" PointX="3.75" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="msdbModel.FK__Products__CatCod__51A50FA1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="msdbModel.Sale" Width="1.5" PointX="6.75" PointY="0.5" />
+        <AssociationConnector Association="msdbModel.Fk_Sales_To_Products" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
