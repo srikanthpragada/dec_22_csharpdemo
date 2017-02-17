@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>csharpdemo.ef.AddCourse</StartupObject>
+    <StartupObject>csharpdemo.ef.UpdateCourseDisconnected</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -66,6 +66,10 @@
     <Compile Include="DelegateDemo.cs" />
     <Compile Include="DisplayFile.cs" />
     <Compile Include="ef\Account.cs" />
+    <Compile Include="ef\DeleteCourse.cs" />
+    <Compile Include="ef\UpdateCourseDisconnected.cs" />
+    <Compile Include="ef\UpdateCourse.cs" />
+    <Compile Include="ef\AddTopic.cs" />
     <Compile Include="ef\CatalogContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,6 +99,7 @@
     <Compile Include="ef\Sale.cs">
       <DependentUpon>CatalogContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="ef\Topic.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Factors.cs" />
     <Compile Include="FunctionsDemo.cs" />
